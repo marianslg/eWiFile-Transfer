@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.root.ewifiletransfer">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Para que la app me aparezca en la lista cuando toco compartir archivo -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" /> <!-- Para que se pueda compartir un solo archivo -->
+                <action android:name="android.intent.action.SEND_MULTIPLE" /> <!-- Idem anterior pero con varios archivos -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" /> <!-- Para poder compartir todo tipo de archivos -->
+            </intent-filter>
+        </activity>
+        <activity android:name=".Client.ClientMode"/>
+        <activity
+            android:name=".Server.ServerModeSelect"
+            android:launchMode="singleTask"
+            android:noHistory="true" />
+        <activity
+            android:name=".Server.ServerMode"/>
+        <activity
+            android:name=".Finish"
+            android:launchMode="singleTask"
+            android:noHistory="true" />
+
+        <receiver android:name=".NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".Client.ClientService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name=".Server.ServerService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+</manifest>

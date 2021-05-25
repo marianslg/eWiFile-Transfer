@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.15"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textTotalFiles"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.45"
+                android:gravity="bottom|center_horizontal"
+                android:text="Total de archivos a enviar:"
+                android:textColor="#000"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:verticalScrollbarPosition="defaultPosition" />
+
+            <TextView
+                android:id="@+id/textTotalFilesValue"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.55"
+                android:gravity="top|center_horizontal"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:verticalScrollbarPosition="defaultPosition" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textTotalSize"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.45"
+                android:gravity="bottom|center_horizontal"
+                android:text="Tamaño total a enviar:"
+                android:textColor="#000"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:verticalScrollbarPosition="defaultPosition" />
+
+            <TextView
+                android:id="@+id/textTotalSizeValue"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.55"
+                android:gravity="top|center_horizontal"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:verticalScrollbarPosition="defaultPosition" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.68"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/listFiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.17"
+        android:orientation="horizontal"
+        android:padding="1dp"
+        android:weightSum="1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/butStartServer"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="ENVIAR ARCHIVOS"
+            android:onClick="startServer"
+            android:background="@drawable/but"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="1"/>
+    </LinearLayout>
+
+</LinearLayout>
